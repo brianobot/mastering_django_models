@@ -9,7 +9,15 @@ class Person(models.Model):
 
     def __str__(self) -> str:
         return f"{self.first_name} {self.last_name}"
-
+    
+    class Meta:
+        # db_table: overwrite the default database tabel name for a model
+        #    - use lower case names to ensure compatabilty with all database (MySQL, Mariadb)
+        #    - to prevent database name length limitation on oracle, use < 30 chars for the database name
+        #    - 
+        # db_table_comment: this is useful for the direct database users who might not access through your django orm
+        # 
+        pass
 
 
 class Asset(models.Model):
